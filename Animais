@@ -47,3 +47,23 @@ public class Animal {
         System.out.println("Voa?: " + voa);
     }
 }
+
+
+ =-=-=-=-=-=-=-OUTPUT-=---=-=-=-=
+Nome: Johnson
+Numero de patas: 0
+Tem rabo?: true
+Voa?: false
+Idade: 10
+Cor: Preto
+Peso: 2000.0
+Carnívoro: true
+-------------------
+Nome: Mike
+Numero de patas: 2
+Tem rabo?: true
+Voa?: true
+Idade: 88
+Cor: Preto
+Peso: 10.0
+Carnívoro: true
