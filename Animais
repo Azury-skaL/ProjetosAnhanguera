@@ -1,0 +1,49 @@
+public class Animal {
+
+    String nomeAnimal;
+    int numeroDePatas;
+    boolean temRabo;
+    boolean voa;
+    int idadeAnimal;
+    String corAnimal;
+    float pesoAnimal;
+    boolean carnivoro;
+
+    public static void main(String[] args) {
+
+        Animal baleia = new Animal();
+        baleia.nomeAnimal = "Johnson";
+        baleia.numeroDePatas = 0;
+        baleia.temRabo = true;
+        baleia.voa = false;
+        baleia.idadeAnimal = 10;
+        baleia.corAnimal = "Preto";
+        baleia.pesoAnimal = 2000;
+        baleia.carnivoro = true;
+
+        Animal urubu = new Animal();
+        urubu.nomeAnimal = "Mike";
+        urubu.numeroDePatas = 2;
+        urubu.temRabo = true;
+        urubu.voa = true;
+        urubu.idadeAnimal = 88;
+        urubu.corAnimal = "Preto";
+        urubu.pesoAnimal = 10;
+        urubu.carnivoro = true;
+
+        baleia.printStatus();
+        System.out.println("-------------------");
+        urubu.printStatus();
+    }
+
+    public void printStatus() {
+        System.out.println("Nome: " + nomeAnimal);
+        System.out.println("Idade: " + idadeAnimal);
+        System.out.println("Cor: " + corAnimal);
+        System.out.println("Peso: " + pesoAnimal);
+        System.out.println("Carnívoro: " + carnivoro);
+        System.out.println("Numero de patas: " + numeroDePatas);
+        System.out.println("Tem rabo?: " + temRabo);
+        System.out.println("Voa?: " + voa);
+    }
+}
