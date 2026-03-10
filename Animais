@@ -1,3 +1,8 @@
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
+
 public class Animal {
 
     String nomeAnimal;
@@ -8,32 +13,18 @@ public class Animal {
     String corAnimal;
     float pesoAnimal;
     boolean carnivoro;
+    String somDoAnimal; // caminho do arquivo .wav
 
-    public static void main(String[] args) {
-
-        Animal baleia = new Animal();
-        baleia.nomeAnimal = "Johnson";
-        baleia.numeroDePatas = 0;
-        baleia.temRabo = true;
-        baleia.voa = false;
-        baleia.idadeAnimal = 10;
-        baleia.corAnimal = "Preto";
-        baleia.pesoAnimal = 2000;
-        baleia.carnivoro = true;
-
-        Animal urubu = new Animal();
-        urubu.nomeAnimal = "Mike";
-        urubu.numeroDePatas = 2;
-        urubu.temRabo = true;
-        urubu.voa = true;
-        urubu.idadeAnimal = 88;
-        urubu.corAnimal = "Preto";
-        urubu.pesoAnimal = 10;
-        urubu.carnivoro = true;
-
-        baleia.printStatus();
-        System.out.println("-------------------");
-        urubu.printStatus();
+    public void emitirSom(String caminhoDoArquivo) {
+        try {
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(new File(caminhoDoArquivo));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.start();
+            Thread.sleep(clip.getMicrosecondLength() / 1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void printStatus() {
@@ -46,24 +37,34 @@ public class Animal {
         System.out.println("Tem rabo?: " + temRabo);
         System.out.println("Voa?: " + voa);
     }
+
+    public static void main(String[] args) {
+        Animal baleia = new Animal();
+        baleia.nomeAnimal = "Johnson";
+        baleia.numeroDePatas = 0;
+        baleia.temRabo = true;
+        baleia.voa = false;
+        baleia.idadeAnimal = 10;
+        baleia.corAnimal = "Preto";
+        baleia.pesoAnimal = 2000;
+        baleia.carnivoro = true;
+        baleia.somDoAnimal = "C:\\Users\\Aula\\Desktop\\projeto animal\\Baleia 2.wav";
+
+        Animal urubu = new Animal();
+        urubu.nomeAnimal = "Mike";
+        urubu.numeroDePatas = 2;
+        urubu.temRabo = true;
+        urubu.voa = true;
+        urubu.idadeAnimal = 88;
+        urubu.corAnimal = "Preto";
+        urubu.pesoAnimal = 10;
+        urubu.carnivoro = true;
+        urubu.somDoAnimal = "C:\\Users\\Aula\\Desktop\\projeto animal\\raven-grasnar.wav";
+
+        baleia.printStatus();
+        baleia.emitirSom(baleia.somDoAnimal);
+        System.out.println("-------------------");
+        urubu.printStatus();
+        urubu.emitirSom(urubu.somDoAnimal);
+    }
 }
-
-
- =-=-=-=-=-=-=-OUTPUT-=---=-=-=-=
-Nome: Johnson
-Numero de patas: 0
-Tem rabo?: true
-Voa?: false
-Idade: 10
-Cor: Preto
-Peso: 2000.0
-Carnívoro: true
--------------------
-Nome: Mike
-Numero de patas: 2
-Tem rabo?: true
-Voa?: true
-Idade: 88
-Cor: Preto
-Peso: 10.0
-Carnívoro: true
