@@ -48,7 +48,7 @@ public class Animal {
         baleia.corAnimal = "Preto";
         baleia.pesoAnimal = 2000;
         baleia.carnivoro = true;
-        baleia.somDoAnimal = "C:\\Users\\Aula\\Desktop\\projeto animal\\Baleia 2.wav";
+        baleia.somDoAnimal = "C:\\Users\\Rafael\\Desktop\\projeto\\Sons\\dragon-studio-humpback-whale-382727.wav";
 
         Animal urubu = new Animal();
         urubu.nomeAnimal = "Mike";
@@ -59,7 +59,7 @@ public class Animal {
         urubu.corAnimal = "Preto";
         urubu.pesoAnimal = 10;
         urubu.carnivoro = true;
-        urubu.somDoAnimal = "C:\\Users\\Aula\\Desktop\\projeto animal\\raven-grasnar.wav";
+        urubu.somDoAnimal = "C:\\Users\\Rafael\\Desktop\\projeto\\Sons\\lhegau.wavs";
 
         baleia.printStatus();
         baleia.emitirSom(baleia.somDoAnimal);
